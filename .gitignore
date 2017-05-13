@@ -5,6 +5,7 @@
 
 # Package Files #
 *.jar
+!src/main/resources/*.jar
 *.war
 *.ear
 
