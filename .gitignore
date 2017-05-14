@@ -5,7 +5,7 @@
 
 # Package Files #
 *.jar
-!src/main/resources/*.jar
+!src/huedesktopapp/resources/*.jar
 *.war
 *.ear
 
