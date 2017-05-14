@@ -8,9 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class HueApp extends Application
 {
+
+    private static final Logger logger = LogManager.getLogger(HueApp.class);
 
     public static void main(String[] args)
     {
@@ -20,9 +24,16 @@ public class HueApp extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("layout.fxml"));
-        primaryStage.setTitle("Hue Desktop App");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        try
+        {
+            Parent root = FXMLLoader.load(getClass().getResource("layout.fxml"));
+            primaryStage.setTitle("Hue Desktop App");
+            primaryStage.setScene(new Scene(root, 300, 275));
+            primaryStage.show();
+        }
+        catch (Exception ex)
+        {
+            logger.error(ex.getMessage());
+        }
     }
 }

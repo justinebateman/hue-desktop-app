@@ -1,5 +1,8 @@
 package huedesktopapp.data;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,6 +14,7 @@ import java.util.Properties;
  */
 public class HueProperties
 {
+    private static final Logger logger = LogManager.getLogger(HueProperties.class);
     private static final String LAST_CONNECTED_IP = "LastIPAddress";
     private static final String USER_NAME = "WhiteListUsername";
     private static final String PROPS_FILE_NAME = "Hue.properties";
@@ -66,7 +70,7 @@ public class HueProperties
             }
             catch (IOException e)
             {
-                // Handle the IOException.
+                logger.error(e.getMessage());
             }
         }
     }
@@ -81,11 +85,11 @@ public class HueProperties
         }
         catch (FileNotFoundException e)
         {
-            // Handle the FileNotFoundException.
+            logger.error(e.getMessage());
         }
         catch (IOException e)
         {
-            // Handle the IOException.
+            logger.error(e.getMessage());
         }
     }
 }
